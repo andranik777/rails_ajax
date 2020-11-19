@@ -1,0 +1,8 @@
+document.getElementById("emails-list").children["<%=j params[:id]%>"-1].insertAdjacentHTML("beforeend", "<%= j render 'show', email: @email %>")
+
+
+a =document.getElementById("emails-list").children["<%=j params[:id]%>"-1].lastElementChild
+a.addEventListener("click", function(){
+a =document.getElementById("emails-list").children["<%=j params[:id]%>"-1].lastElementChild
+a.parentNode.removeChild(a)
+})
