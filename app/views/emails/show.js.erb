@@ -1,8 +1,15 @@
 document.getElementById("emails-list").children["<%=j params[:id]%>"-1].insertAdjacentHTML("beforeend", "<%= j render 'show', email: @email %>")
 
-
 a =document.getElementById("emails-list").children["<%=j params[:id]%>"-1].lastElementChild
 a.addEventListener("click", function(){
 a =document.getElementById("emails-list").children["<%=j params[:id]%>"-1].lastElementChild
 a.parentNode.removeChild(a)
+b = document.getElementById("emails-list").children["<%=j params[:id]%>"-1].children[2].children[2]
+b.setAttribute("class","btn btn-success")
+b.innerHTML ="Lu"
+console.log(b)
 })
+
+b = document.getElementById("emails-list").children["<%=j params[:id]%>"-1].children[2].children[2]
+b.setAttribute("class","btn btn-success")
+b.innerHTML ="Marquer comme non-lu"

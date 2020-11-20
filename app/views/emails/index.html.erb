@@ -18,7 +18,11 @@
                 <td><%=email.object%></td>
                 <td><%=link_to "Afficher", email_path(email.id), class: "btn btn-primary",remote: true%>
                 <a href="<%=email_path(email.id)%>" class ="btn btn-danger" data-confirm ="supprimer l'article ?" data-method ="DELETE">supprimer</a>
-                <%=link_to "Marquer comme non-lu", email_path(email.id), class: "btn btn-secondary", method: :put, remote: true%>
+                <%if Email.find(email.id).read == false%>
+                <%=link_to "Marquer comme lu", email_path(email.id), class: "btn btn-secondary", method: :put, remote: true%>
+                <%else%>
+                <%=link_to "Marquer comme non-lu", email_path(email.id), class: "btn btn-success", method: :put, remote: true%>
+                <%end%>
                 </td>
             </tr>
         <%end%>

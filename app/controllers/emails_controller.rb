@@ -11,6 +11,9 @@ class EmailsController < ApplicationController
     end
   end
   def show
+    @vu = Email.find(params[:id])
+    @vu.update(read:true)
+
     @email = Email.find(params[:id])
     respond_to do |format|
       format.html { redirect_to emails_path }
@@ -31,12 +34,12 @@ class EmailsController < ApplicationController
   end
   def update
     @email = Email.find(params[:id])
-    @email.update
+    @email.update(read:false)
     respond_to do |format|
       format.html { redirect_to emails_path }
       format.js { }
-      end
-    puts "$"*30
+    end
+
   end
 
 end
